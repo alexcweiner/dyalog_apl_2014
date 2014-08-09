@@ -1,0 +1,53 @@
+right←{(⍵*2)=+/⍺=*2}
+
+vowels←{
+blanks←' '=⍵
+
+r←⍵,' '
+rblanks←' '=r
+rwb←1↓rblanks
+rwb←rwb∧~blanks
+
+l←' ',⍵
+lblanks←' '=l
+lwb¯1↓lblanks
+lwb←lwb∧~blanks
+
+⍵/⍨~(rwb≠⍵∊'aeiouAEIOU')∧lwb≠⍵∊'aeiouAEIOU'
+}
+
+fib←{0.5×1+1 ¯1×5*0.5)∘{(-⌿⍺∘.*⍵)÷-/⍺}⍳⍵}
+
+space←{
+r←⍵,' '
+b←' '≠r
+b←b∨¯10,b
+¯1↓b/r
+}
+
+palindrome←{∧/⍵=⌽⍵}
+
+dice←{
+vals←,(⍳⍵)∘.+⍳⍵
+svals←vals[⍋vals]
+valsbool←¯1↓(0,svals)≠svals,0
+ones←1⍴⍨⍴valsbool
+pr←(1⌽valsbool)⌿+⍀ones
+pr←pr-(⍴pr)⍴0,[⎕IO]pr
+dicenums←1↓⍳+/⍵
+sizedn←⍴dicenums
+(dicenums⍴⍨sizedn,1),pr⍴⍨sizedn,1
+}
+
+circles←{⍵÷⍨⍺∧⍵}
+
+ndistance←{0.5*⍨+/2*⍨⍵-⍺}
+
+projectile←{((⍺*2)×1○2×⍵×180÷⍨¯2○¯1)÷9.8}
+
+problemten←{
+ot←0,⍵
+to←⍵,0
+diff←¯1↓to-ot
+100×(diff[1+⍵⍳⌈/diff])÷⍵[⍵⍳⌈/diff]
+}
